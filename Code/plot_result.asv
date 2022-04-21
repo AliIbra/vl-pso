@@ -1,0 +1,49 @@
+%% you need to give the file name
+load('..\Results\file_name');
+x = [];
+y = [];
+
+nIter = length(BestSol(i).nFeatures);
+for i = 1 : nIter
+    x = [x, BestSol(i).nFeatures];
+    y =[y, BestSol(i).Fitness];
+end
+subplot(2,2,[3 4]);
+p = plot(x,y, 'o', 'color', 'red');
+xlabel('Number of Features')
+ylabel('Fitness')
+title('Figure 2-1: Fitness')
+
+% y = [];
+% for i = 1 : 50
+%     y =[y, BestSol(i).nFeatures];
+% end
+% subplot(2,2,2);
+% p = plot(X,y);
+% title('Figure 2-2: Number Of Features')
+
+x=[];
+y=[];
+for i = 1 : nIter
+    x = [x, BestSol(i).nFeatures];
+    y =[y;BestSol(i).Accuracy];
+end
+subplot(2,2,[1 2]);
+plot(x,y, 'o', 'color', 'red');
+xlabel('Number of Features')
+ylabel('Accuracy')
+title('Figure 2-3: Accuracy')
+
+% x= [];
+% y=[];
+% for i = 1 : 
+%     x = [x, BestSol(i).nFeatures];
+%     y =[y;BestSol(i).Distance];
+% end
+% subplot(2,2,3);
+% plot(x,y,'o', 'color', 'red');
+% xlabel('Number of Features')
+% ylabel('Distance')
+% title('Figure 2-4: Distance')
+
+save('../Results/Figures/h_gama_50_Itr_12_F_4_D_Sol.bmp')
